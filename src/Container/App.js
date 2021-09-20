@@ -1,17 +1,6 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import Cockpit from "../Components/Cockpit/Cockpit";
 import Persons from "../Components/Persons/Persons";
-
-const StyledButton = styled.button`
-  background: ${(props) => (props.alt ? "red" : "green")};
-  color: white;
-  fontsize: 20px;
-  padding: 8px 15px;
-  &:hover {
-    background: ${(props) => (props.alt ? "salmon" : "lightgreen")};
-    color: black;
-  }
-`;
 
 class App extends Component {
   state = {
@@ -81,9 +70,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <StyledButton alt={this.state.showPerson} onClick= {this.togglePerson}>
-          Toggle Person
-        </StyledButton>
+        <Cockpit color={this.state.showPerson} togglePerson = {this.togglePerson} />
         {persons}
       </div>
     )
