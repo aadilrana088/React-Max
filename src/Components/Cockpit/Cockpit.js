@@ -14,6 +14,7 @@ const StyledButton = styled.button`
 const Cockpit = (props) => {
   return (
     <div>
+        <h1>{props.appTitle}</h1>
       <StyledButton alt={props.color} onClick={props.togglePerson}>
         Toggle Person
       </StyledButton>

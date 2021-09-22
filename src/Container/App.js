@@ -3,15 +3,29 @@ import Cockpit from "../Components/Cockpit/Cockpit";
 import Persons from "../Components/Persons/Persons";
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: "one", name: "Aadil", age: 20 },
-      { id: "two", name: "Shoiab", age: 18 },
-      { id: "three", name: "Usman", age: 10 },
-    ],
-    showPerson: true,
-  };
-
+  constructor(props) {
+    super(props)
+    console.log("App.js Constructor");
+    this.state = {
+      persons: [
+        { id: "one", name: "Aadil", age: 20 },
+        { id: "two", name: "Shoiab", age: 18 },
+        { id: "three", name: "Usman", age: 10 },
+      ],
+      showPerson: true,
+    };
+  }
+  static getDerivedStateFromProps(props,state) {
+    console.log("App.js getDerivedStateFromProps",props);
+    return state;
+  }
+  componentWillMount() {
+    console.log("App.js ComponentWillMount");
+    //there is no use of this method here now
+  }
+  componentDidMount() {
+    console.log("App.js componentDidMount");
+  }
   nameChangeHandler = (event,id) => {
     const personIndex = this.state.persons.findIndex((p)=> {
       return p.id === id
@@ -48,7 +62,7 @@ class App extends Component {
   }
 
   render() {
-
+    console.log("App.js render method");
     let persons = null;
     if(this.state.showPerson) {
       persons = (
@@ -70,7 +84,7 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <Cockpit color={this.state.showPerson} togglePerson = {this.togglePerson} />
+        <Cockpit appTitle={this.props.appTitle} color={"this.state.showPerson"} togglePerson = {this.togglePerson} />
         {persons}
       </div>
     )
