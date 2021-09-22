@@ -9,12 +9,13 @@ class Persons extends Component {
         console.log("Persons.js shouldComponentUpdate");
         return true
     }
-    getSnapshotBeforeUpdate(){
+    getSnapshotBeforeUpdate(prevProps,PrevState){
         console.log("Persons.js getSnapshotBeforeUpdate");
-        return null
+        return {message: "Snapshot"}
     }
-    componentDidUpdate() {
+    componentDidUpdate(prevProps,PrevState,snapShot) {
         console.log("Persons.js componentDidUpdate");
+        console.log(snapShot)
     }
     render() {
         console.log("Persons.js rendering...");
