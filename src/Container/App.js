@@ -19,10 +19,10 @@ class App extends Component {
     console.log("App.js getDerivedStateFromProps",props);
     return state;
   }
-  componentWillMount() {
-    console.log("App.js ComponentWillMount");
-    //there is no use of this method here now
-  }
+  // componentWillMount() {
+  //   console.log("App.js ComponentWillMount");
+  //   //there is no use of this method here now
+  // }
   componentDidMount() {
     console.log("App.js componentDidMount");
   }
