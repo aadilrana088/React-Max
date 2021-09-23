@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component,Fragment } from "react";
 import Aux from "../../Hoc/Aux";
 class Person extends Component {
   render() {
@@ -20,6 +20,18 @@ class Person extends Component {
           value={this.props.value}
         />
       </Aux>
+    // <Fragment>
+    //     <h1 key="i1" onClick={this.props.click}>
+    //       I am {this.props.name} and I am {this.props.age} year old
+    //     </h1>
+    //     ,
+    //     <input
+    //       key="i2"
+    //       type="text"
+    //       onChange={this.props.changed}
+    //       value={this.props.value}
+    //     />
+    // </Fragment>
     );
   }
 }
