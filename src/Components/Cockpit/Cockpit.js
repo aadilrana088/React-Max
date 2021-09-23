@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import styled from "styled-components";
 
 const StyledButton = styled.button`
@@ -12,6 +12,23 @@ const StyledButton = styled.button`
   }
 `;
 const Cockpit = (props) => {
+    useEffect(() => {
+        console.log("UseEffect Log")
+        //Http Request
+        const timer = setTimeout(()=> {
+            alert("Saved Data")
+        },1000)
+        return  () => {
+            clearInterval(timer)
+            console.log("Cleanup code for useEffect ");
+        }
+    }, [])
+    useEffect(() => {
+        console.log("UseEffect Log 2")
+        return  () => {
+            console.log("Cleanup code for useEffect 2");
+        }
+    }, [])
   return (
     <div>
         <h1>{props.appTitle}</h1>

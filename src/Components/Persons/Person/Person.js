@@ -1,13 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
+import Aux from "../../Hoc/Aux";
 class Person extends Component {
-    render() {
-        console.log("Person.js rendering...");
-        return (
-            <div>
-                <h1 onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} year old</h1>
-                <input type="text" onChange={this.props.changed} value={this.props.value} />
-            </div>
-        )
-    }
+  render() {
+    console.log("Person.js rendering...");
+    // return [
+    //         <h1 key="i1" onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} year old</h1>,
+    //         <input key="i2" type="text" onChange={this.props.changed} value={this.props.value} />
+    // ];
+    return (
+      <Aux>
+        <h1 key="i1" onClick={this.props.click}>
+          I am {this.props.name} and I am {this.props.age} year old
+        </h1>
+        ,
+        <input
+          key="i2"
+          type="text"
+          onChange={this.props.changed}
+          value={this.props.value}
+        />
+      </Aux>
+    );
+  }
 }
-export default Person
+export default Person;
